@@ -1,5 +1,4 @@
 import Dialog from '@material-ui/core/Dialog';
-import MuiDialogActions from '@material-ui/core/DialogActions';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import { withStyles } from '@material-ui/core/styles';
@@ -34,15 +33,8 @@ const DialogContent = withStyles((theme) => ({
   },
 }))(MuiDialogContent);
 
-const DialogActions = withStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
 
 export default function CustomizedDialogs({ open, data }) {
-  console.log('data', data);
   return (
     <Dialog aria-labelledby="customized-dialog-title" open={open}>
       <DialogTitle id="customized-dialog-title">

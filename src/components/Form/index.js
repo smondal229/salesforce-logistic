@@ -107,21 +107,8 @@ export default function HorizontalLabelPositionBelowStepper() {
         +'&username=test@testAEM.com'
         +'&password=Mustafa1230ygDeqe4d0clQTOWDjcI5RROQ'
       ).then(function ({ data: responseData }) {
-        console.log(responseData.access_token);
         const { firstname, lastname, email, phone } = data;
-        console.log({
-          firstname,
-          lastname,
-          email,
-          'Phone': phone,
-          'ProductInterest__c': data['ProductInterest__c'],
-          'Company': 'abc'
-        }, {
-          headers: {
-            'Content-type': 'application/json',
-            'Authorization': `Bearer ${responseData.access_token}`
-          }
-        });
+
         return axios.post(`${responseData.instance_url}/services/data/v48.0/sobjects/Lead`, {
           firstname,
           lastname,
@@ -146,7 +133,7 @@ export default function HorizontalLabelPositionBelowStepper() {
         });
       })
     }
-  }, [activeStep]);
+  }, [activeStep, steps.length]);
 
   const getStepContent = (stepIndex) => {
     switch (stepIndex) {
